@@ -74,14 +74,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExecutionGraph\Flowchart\DoIf.cs" />
-    <Compile Include="ExecutionGraph\Flowchart\DoWhile.cs" />
+    <Compile Include="ExecutionGraph\Flowchart\Case.cs" />
+    <Compile Include="ExecutionGraph\Flowchart\If.cs" />
+    <Compile Include="ExecutionGraph\Flowchart\Switch.cs" />
+    <Compile Include="ExecutionGraph\Flowchart\While.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="FileInf.cs" />
     <Compile Include="ExecutionGraph\Graph.cs" />
     <Compile Include="ExecutionGraph\GraphEvent.cs" />
+    <Compile Include="LaunchType.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ExecutionGraph\Node.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskStatus.cs" />
@@ -91,14 +95,23 @@
     <Compile Include="Workflow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Wexflow.xml" />
     <Content Include="Workflow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Workflow.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+       Other similar extension points exist, see Microsoft.Common.targets.-->
   <Target Name="BeforeBuild">
+    <PropertyGroup>
+      <CodeAnalysisRuleSet>
+      </CodeAnalysisRuleSet>
+    </PropertyGroup>
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
 </Project>

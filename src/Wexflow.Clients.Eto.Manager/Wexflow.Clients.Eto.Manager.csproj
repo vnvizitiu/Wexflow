@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -65,9 +65,6 @@
     <Reference Include="Eto.Gtk2">
       <HintPath>..\..\libs\Eto.Gtk2.dll</HintPath>
     </Reference>
-    <Reference Include="Eto.Gtk3">
-      <HintPath>..\..\libs\Eto.Gtk3.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -79,8 +76,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Wexflow.app\Contents\MacOS\Launcher.exec" />
+    <None Include="Wexflow.app\Contents\Resources\Wexflow.icns" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Wexflow.app\Contents\Info.plist" />
     <Content Include="Wexflow.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -93,12 +93,18 @@
       <Name>Wexflow.Core.Service.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Wexflow.app\Contents\MonoBundle\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+       Other similar extension points exist, see Microsoft.Common.targets.-->
   <Target Name="BeforeBuild">
+    <PropertyGroup>
+      <CodeAnalysisRuleSet>
+      </CodeAnalysisRuleSet>
+    </PropertyGroup>
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
 </Project>
